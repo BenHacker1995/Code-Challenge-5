@@ -2,10 +2,10 @@ const router = require( 'express' ).Router();
 const pool = require( '../pools/pool' );
 
 router.get( '/', ( req, res ) => {
-    console.log( 'In GET request for entry' );
-    const queryText = `SELECT * from entry;`
+    console.log( 'In GET request for messages' );
+    const queryText = `SELECT * from messages;`
     pool.query( queryText )
-    .then(  ( result ) => {
+    .then( ( result ) => {
         console.log( `Back from the database with ${ result }`);
         res.send( result.rows );
     }).catch( ( error ) => {
@@ -15,9 +15,9 @@ router.get( '/', ( req, res ) => {
 })
 
 router.post( '/', ( req, res ) => {
-    console.log( 'In POST request for entry' );
-    const queryEntryText = `INSERT INTO entry ( entrytext, projectname, dateof, starttime, endtime, entryhours ) VALUES ( $1, $2, $3, $4, $5, $6 );`;
-    pool.query( queryEntryText, [ newEntry.entrytext, newEntry.projectname, newEntry.dateof, then, now, hours ] )
+    console.log( 'In POST request for messages' );
+    const queryText = `INSERT INTO messages ( name, message ) VALUES ( $1, $2 );`;
+    pool.query( queryText, [ req.body.name, req.body.message ] )
     .then( ( result ) => {
         console.log( `Successfully posted to database with ${ result }` );
         res.sendStatus( 201 );

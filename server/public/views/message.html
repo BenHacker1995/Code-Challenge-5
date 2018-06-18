@@ -1,0 +1,8 @@
+<form ng-submit="MC.postMessage()">
+    <input type="text" ng-model="MC.name" placeholder="Name">
+    <input type="text" ng-model="MC.message" placeholder="Message">
+    <input type="submit" ng-click="MC.addMessage()">
+</form>
+<ul ng-repeat="IM in MC.messages">
+    <li>{{ IM.name }}: {{ IM.message }}</li>
+</ul>

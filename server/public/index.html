@@ -4,9 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <script src="vendors/angular.js"></script>
+    <script src="vendors/angular-route.js"></script>
+    <script src="scripts/client.js"></script>
+
+    <script src="scripts/controllers/message.controller.js"></script>
+    <script src="scripts/services/message.service.js"></script>
+
+    <link rel="stylesheet" href="styles/style.css">
     <title>Message Board</title>
 </head>
-<body>
-    
+<body ng-app="messageApp">
+    <h1>Full Stack Messaging</h1>
+    <ng-view></ng-view>
 </body>
 </html>
